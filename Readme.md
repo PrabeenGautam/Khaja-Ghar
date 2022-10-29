@@ -1,4 +1,4 @@
-Normal shopping react based web using
+Basic shopping react based web using
 - useReducer to Add and Remove
 - useContext to pass values to components having no direct connection
 - React.forwardRef to pass ref to Components rather than JSX elements
