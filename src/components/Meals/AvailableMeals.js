@@ -1,36 +1,32 @@
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 import classes from "./AvailableMeals.module.css";
-
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
-    price: 16.5,
-  },
-  {
-    id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 12.99,
-  },
-  {
-    id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
-  },
-];
+import useHttp from "../../hooks/use-http";
+import { useEffect, useState } from "react";
+import baseURL from "../../backend/baseURL";
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => (
+  const { isLoading, error, sendRequest } = useHttp();
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    const transForm = (initialObj) => {
+      const loadedMeals = [];
+      for (const meal in initialObj) {
+        loadedMeals.push({
+          id: meal,
+          name: initialObj[meal].name,
+          description: initialObj[meal].description,
+          price: initialObj[meal].price,
+        });
+      }
+      setMeals(loadedMeals);
+    };
+
+    sendRequest({ url: `${baseURL}/meals.json` }, transForm);
+  }, [sendRequest]);
+
+  const mealsList = meals.map((meal) => (
     <MealItem
       id={meal.id}
       key={meal.id}
@@ -40,11 +36,20 @@ const AvailableMeals = () => {
     />
   ));
 
+  let content = "No Meals Found. Try Adding Meals";
+  if (error) {
+    content = <p>error</p>;
+  }
+  if (isLoading) {
+    content = <p>{"Loading Data..."}</p>;
+  }
+  if (!isLoading && mealsList.length > 0) {
+    content = <ul>{mealsList}</ul>;
+  }
+
   return (
     <section className={classes.meals}>
-      <Card>
-        <ul>{mealsList}</ul>
-      </Card>
+      <Card>{content}</Card>
     </section>
   );
 };

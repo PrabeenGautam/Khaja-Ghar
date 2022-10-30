@@ -8,8 +8,6 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const hasItem = cartCtx.totalItem.length > 0;
 
-  console.log(cartCtx.totalItem);
-
   const onCartRemoveHandler = (id) => {
     cartCtx.removeItemFromList(id);
   };

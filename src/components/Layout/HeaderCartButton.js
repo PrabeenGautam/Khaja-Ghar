@@ -11,7 +11,7 @@ const HeaderCartButton = (props) => {
   const [bumpBtn, setBumpBtn] = useState(false);
 
   useEffect(() => {
-    if (ctx.totalItem.length === 0) {
+    if (totalItem.length === 0) {
       return;
     }
     setBumpBtn(true);
