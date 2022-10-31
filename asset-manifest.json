@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Khaja-Ghar/static/css/main.255047f5.chunk.css",
+    "main.js": "/Khaja-Ghar/static/js/main.0bfd51db.chunk.js",
+    "main.js.map": "/Khaja-Ghar/static/js/main.0bfd51db.chunk.js.map",
+    "runtime-main.js": "/Khaja-Ghar/static/js/runtime-main.734bffe2.js",
+    "runtime-main.js.map": "/Khaja-Ghar/static/js/runtime-main.734bffe2.js.map",
+    "static/css/2.47012977.chunk.css": "/Khaja-Ghar/static/css/2.47012977.chunk.css",
+    "static/js/2.d7435ae7.chunk.js": "/Khaja-Ghar/static/js/2.d7435ae7.chunk.js",
+    "static/js/2.d7435ae7.chunk.js.map": "/Khaja-Ghar/static/js/2.d7435ae7.chunk.js.map",
+    "index.html": "/Khaja-Ghar/index.html",
+    "static/css/2.47012977.chunk.css.map": "/Khaja-Ghar/static/css/2.47012977.chunk.css.map",
+    "static/css/main.255047f5.chunk.css.map": "/Khaja-Ghar/static/css/main.255047f5.chunk.css.map",
+    "static/js/2.d7435ae7.chunk.js.LICENSE.txt": "/Khaja-Ghar/static/js/2.d7435ae7.chunk.js.LICENSE.txt",
+    "static/media/meals.4700ece8.jpeg": "/Khaja-Ghar/static/media/meals.4700ece8.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.734bffe2.js",
+    "static/css/2.47012977.chunk.css",
+    "static/js/2.d7435ae7.chunk.js",
+    "static/css/main.255047f5.chunk.css",
+    "static/js/main.0bfd51db.chunk.js"
+  ]
+}
