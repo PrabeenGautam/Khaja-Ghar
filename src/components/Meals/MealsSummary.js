@@ -1,16 +1,18 @@
-import classes from './MealsSummary.module.css';
+import classes from "./MealsSummary.module.css";
 
 const MealsSummary = () => {
   return (
     <section className={classes.summary}>
-      <h2>Delicious Food, Delivered To You</h2>
+      <h2>Order food of varieties</h2>
       <p>
-        Choose your favorite meal from our broad selection of available meals
-        and enjoy a delicious lunch or dinner at home.
+        KhajaGhar is the fastest, easiest and most convenient way to enjoy the
+        best food of your favourite restaurants at home, at the office or
+        wherever you want to.
       </p>
       <p>
-        All our meals are cooked with high-quality ingredients, just-in-time and
-        of course by experienced chefs!
+        We know that your time is valuable and sometimes every minute in the day
+        counts. That’s why we deliver! So you can spend more time doing the
+        things you love.
       </p>
     </section>
   );

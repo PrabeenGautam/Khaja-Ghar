@@ -16,7 +16,8 @@ function useHttp() {
 
       if (!response.ok) throw new Error("Something went wrong");
       const data = await response.json();
-      applyData(data);
+      applyData && applyData(data);
+      if (responseConfig.method === "POST") window.location.reload();
     } catch (error) {
       console.log(error);
       setError("Something went wrong!");
