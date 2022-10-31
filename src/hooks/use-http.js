@@ -17,10 +17,13 @@ function useHttp() {
       if (!response.ok) throw new Error("Something went wrong");
       const data = await response.json();
       applyData && applyData(data);
-      if (responseConfig.method === "POST") window.location.reload();
+      // if (
+      //   responseConfig.method === "POST" &&
+      //   responseConfig.type !== "no-reload"
+      // )
+      //   window.location.reload();
     } catch (error) {
-      console.log(error);
-      setError("Something went wrong!");
+      setError(error.message || "Something went wrong!");
     }
     setIsLoading(false);
   }, []);

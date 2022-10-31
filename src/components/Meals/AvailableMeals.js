@@ -4,6 +4,7 @@ import classes from "./AvailableMeals.module.css";
 import useHttp from "../../hooks/use-http";
 import { useEffect, useState } from "react";
 import baseURL from "../../backend/baseURL";
+import { toast } from "react-toastify";
 
 const AvailableMeals = () => {
   const { isLoading, error, sendRequest } = useHttp();
@@ -26,6 +27,10 @@ const AvailableMeals = () => {
     sendRequest({ url: `${baseURL}/meals.json` }, transForm);
   }, [sendRequest]);
 
+  useEffect(() => {
+    toast.error(error);
+  }, [error]);
+
   const mealsList = meals.map((meal) => (
     <MealItem
       id={meal.id}
@@ -38,7 +43,7 @@ const AvailableMeals = () => {
 
   let content = "No Meals Found. Try Adding Meals";
   if (error) {
-    content = <p>error</p>;
+    content = <p>{error}</p>;
   }
   if (isLoading) {
     content = <p>{"Loading Data..."}</p>;

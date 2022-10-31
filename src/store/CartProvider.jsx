@@ -44,7 +44,7 @@ function CartProvider({ children }) {
       const newAmount = existingItem.amount - 1;
 
       if (newAmount === 0) {
-        updatedItems.splice(index, 1)
+        updatedItems.splice(index, 1);
       } else {
         updatedItems[index] = {
           ...existingItem,
@@ -53,6 +53,8 @@ function CartProvider({ children }) {
       }
 
       return { item: [...updatedItems], amount: numAmount };
+    } else if (action.type === "REMOVE_ALL") {
+      return defaultCart;
     } else return defaultCart;
   };
 
@@ -65,11 +67,16 @@ function CartProvider({ children }) {
     dispatchCartActions({ type: "REMOVE", id: id });
   };
 
+  const removeAllCartItem = () => {
+    dispatchCartActions({ type: "REMOVE_ALL" });
+  };
+
   const initialState = {
     totalItem: state.item,
     totalAmount: state.amount,
     addItemToList,
     removeItemFromList,
+    removeAllCartItem,
   };
   return (
     <CartContext.Provider value={initialState}>{children}</CartContext.Provider>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import baseURL from "./backend/baseURL.js";
 import AddMeals from "./components/Cart/AddMeals";
 import Cart from "./components/Cart/Cart";
@@ -26,23 +27,38 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newData),
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2500);
+    toast.info("Added Successfully. Reloading Page!!", {
+      autoClose: 2000,
+      toastId: "reloadToast",
+      closeButton: false,
+      pauseOnHover: false,
+      pauseOnFocusLoss: false,
+      closeOnClick: false,
+    });
   };
 
   return (
-    <CartProvider>
-      {showCart && <Cart showCart={showModalCart} closeCart={closeModalCart} />}
-      {addMeal && (
-        <AddMeals
-          showCart={showAddMeal}
-          closeCart={closeAddMeal}
-          formValue={sendData}
-        />
-      )}
-      <Header showCart={showModalCart} showAddMeal={showAddMeal} />
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+    <>
+      <CartProvider>
+        {showCart && (
+          <Cart showCart={showModalCart} closeCart={closeModalCart} />
+        )}
+        {addMeal && (
+          <AddMeals
+            showCart={showAddMeal}
+            closeCart={closeAddMeal}
+            formValue={sendData}
+          />
+        )}
+        <Header showCart={showModalCart} showAddMeal={showAddMeal} />
+        <main>
+          <Meals />
+        </main>
+      </CartProvider>
+    </>
   );
 }
 

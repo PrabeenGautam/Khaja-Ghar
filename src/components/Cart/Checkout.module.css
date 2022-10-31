@@ -1,0 +1,30 @@
+.form {
+  margin: 1rem 0;
+  overflow: auto;
+}
+
+.formInput {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.control {
+  flex-basis: 46%;
+  margin-bottom: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
+}
